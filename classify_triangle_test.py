@@ -1,25 +1,41 @@
+#!/bin/python3
+
 import pytest
 from classify_triangle import ClassifyTriangle, InvalidTriangleError
 
-@pytest.mark.parametrize("side1, side2, side3", [(17,15,8), (3,4,5), (5,12,13)])
-def test_right_triangle(side1, side2, side3):
-    tst_classify_triangle = ClassifyTriangle(side1, side2, side3)
+def test_non_triangle_integers():
+    with pytest.raises(InvalidTriangleError):
+        tst_classify_triangle = ClassifyTriangle(4,5,10)
+
+@pytest.mark.parametrize("sides1, sides2, sides3", [(17,15,8), (3,4,5), (5,12,13)])
+def test_right_triangle(sides1, sides2, sides3):
+    tst_classify_triangle = ClassifyTriangle(sides1, sides2, sides3)
     is_right_triangle = tst_classify_triangle.right_triangle()
     assert is_right_triangle == True
 
 def test_not_right_triangle():
-    tst_classify_triangle = ClassifyTriangle(4, 5, 6)
+    tst_classify_triangle = ClassifyTriangle(4,5,6)
     is_not_right_triangle = tst_classify_triangle.right_triangle()
     assert is_not_right_triangle == False
 
-@pytest.mark.parametrize("side1, side2, side3", [(2,2,3), (2,3,2), (3,2,2)])
-def test_isosceles_triangle(side1, side2, side3):
-    tst_classify_triangle = ClassifyTriangle(side1, side2, side3)
+@pytest.mark.parametrize("sides1, sides2, sides3", [(2,2,3), (2,3,2), (3,2,2)])
+def test_isosceles_triangle(sides1, sides2, sides3):
+    tst_classify_triangle = ClassifyTriangle(sides1, sides2, sides3)
     is_isosceles_triangle = tst_classify_triangle.isosceles_triangle()
     assert is_isosceles_triangle == True
 
-'''
-def test_equilateral_triangle():
+def test_not_isosceles_triangle():
+    tst_classify_triangle = ClassifyTriangle(4,5,6)
+    is_not_isosceles_triangle = tst_classify_triangle.isosceles_triangle()
+    assert is_not_isosceles_triangle == False
 
-def test_non_triangle_integers():
-'''
+@pytest.mark.parametrize("sides1, sides2, sides3", [(2,2,2), (4,4,4), (17,17,17)])
+def test_equilateral_triangle(sides1, sides2, sides3):
+    tst_classify_triangle = ClassifyTriangle(sides1, sides2, sides3)
+    is_equilateral_triangle = tst_classify_triangle.equilateral_triangle()
+    assert is_equilateral_triangle == True
+
+def test_equilateral_triangle():
+    tst_classify_triangle = ClassifyTriangle(2,2,3)
+    is_not_equilateral_triangle = tst_classify_triangle.equilateral_triangle()
+    assert is_not_equilateral_triangle == False

@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import sys
 
 class InvalidTriangleError(Exception): #Thank you ChatGPT for this contribution!
@@ -40,17 +42,13 @@ class ClassifyTriangle:
         """Check if the triangle is an equilateral triangle."""
         return self.s1 == self.s2 == self.s3
 
-if len(sys.argv) == 1: 
-    """Prompt terminal user for inputs"""
-    marketing_string = "Triangle Sort-o-Matic (patent pending)!"
-    input_side1 = int(input(f'Welcome to the {marketing_string}\nRemember all entries must be numeric and greater than 0.\nPlease enter the first side length of a triangle and press enter. '))
-    input_side2 = int(input(f"Excellent, the first side is {input_side1}!\nPlease enter a second side length and press enter. "))
-    input_side3 = int(input(f"Excellent, the second side is {input_side2}!\nPlease enter the final side length and press enter. "))
+if len(sys.argv) == 4: 
+    input_side1 = int(sys.argv[1])
+    input_side2 = int(sys.argv[2])
+    input_side3 = int(sys.argv[3])
 
     try:
         process_results = ClassifyTriangle(input_side1, input_side2, input_side3)
         print(process_results.classify_triangle()) 
     except InvalidTriangleError as e: #Thank you ChatGPT for this contribution!
         print(f"I'm sorry, but one of your sides is not a valid entry.\n{str(e)}")
-            
-    print(f"Thank you for using the {marketing_string} Good bye!")
