@@ -1,4 +1,11 @@
 #!/bin/python3
+"""
+This is a class project for 2024S SSW 567-WS, Software Testing, Quality Assurance and Maintenance
+Group members:
+Estevan Stowe
+Jacob Gelman-Funk
+Tawnya Shannon
+"""
 
 import pytest
 from classify_triangle import ClassifyTriangle, InvalidTriangleError
@@ -14,7 +21,7 @@ def test_right_triangle(sides1, sides2, sides3):
     assert is_right_triangle == True
 
 def test_not_right_triangle():
-    tst_classify_triangle = ClassifyTriangle(4,5,6)
+    tst_classify_triangle = ClassifyTriangle(5,4,5)
     is_not_right_triangle = tst_classify_triangle.right_triangle()
     assert is_not_right_triangle == False
 
