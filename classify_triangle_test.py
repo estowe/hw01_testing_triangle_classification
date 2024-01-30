@@ -14,6 +14,14 @@ def test_non_triangle_integers():
     with pytest.raises(InvalidTriangleError):
         tst_classify_triangle = ClassifyTriangle(4,5,10)
 
+def test_zero_integers():
+    with pytest.raises(InvalidTriangleError):
+        tst_classify_triangle = ClassifyTriangle(0,0,0)
+
+def test_negative_integers():
+    with pytest.raises(InvalidTriangleError):
+        tst_classify_triangle = ClassifyTriangle(-3,-4,-5)
+
 @pytest.mark.parametrize("sides1, sides2, sides3", [(17,15,8), (3,4,5), (5,12,13)])
 def test_right_triangle(sides1, sides2, sides3):
     tst_classify_triangle = ClassifyTriangle(sides1, sides2, sides3)
