@@ -50,7 +50,7 @@ def test_equilateral_triangle(sides1, sides2, sides3):
     is_equilateral_triangle = tst_classify_triangle.equilateral_triangle()
     assert is_equilateral_triangle == True
 
-def test_equilateral_triangle():
+def test_not_equilateral_triangle():
     tst_classify_triangle = ClassifyTriangle(2,2,3)
     is_not_equilateral_triangle = tst_classify_triangle.equilateral_triangle()
     assert is_not_equilateral_triangle == False

@@ -4,4 +4,4 @@ python:
 
 # command to run tests
 script:
- - python -m unittest TestTriangle
+ - python -m pytest classify_triangle_test.py
