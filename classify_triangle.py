@@ -57,5 +57,5 @@ if len(sys.argv) == 4:
     try:
         process_results = ClassifyTriangle(input_side1, input_side2, input_side3)
         print(process_results.classify_triangle()) 
-    except InvalidTriangleError as e: #Thank you ChatGPT for this contribution!
+    except InvalidTriangleError as e:
         print(f"I'm sorry, but one of your sides is not a valid entry.\n{str(e)}")
