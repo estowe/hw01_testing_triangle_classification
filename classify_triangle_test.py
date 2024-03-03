@@ -121,3 +121,43 @@ def test_large_numbers():
     tst_classify_triangle = ClassifyTriangle(1000000, 1000000, 1000000)
     triangle_type = tst_classify_triangle.classify_triangle()
     assert "equilateral" in triangle_type
+
+def test_non_right_triangle_with_positive_integers():
+    """
+    Test case non-right triangles.
+    This test checks if the ClassifyTriangle class correctly 
+    identifies non-right triangles.
+    """
+    tst_classify_triangle = ClassifyTriangle(2, 3, 4)
+    is_not_right_triangle = tst_classify_triangle.right_triangle()
+    assert is_not_right_triangle is False
+
+def test_non_equilateral_triangle_with_positive_integers():
+    """
+    Test case for non-equilateral triangles.
+    This test checks if the ClassifyTriangle class correctly 
+    identifies non-equilateral triangles.
+    """
+    tst_classify_triangle = ClassifyTriangle(2, 2, 3)
+    is_not_equilateral_triangle = tst_classify_triangle.equilateral_triangle()
+    assert is_not_equilateral_triangle is False
+
+def test_non_isosceles_triangle_with_positive_integers():
+    """
+    Test case for non-isosceles triangles.
+    This test checks if the ClassifyTriangle class correctly 
+    identifies non-isosceles triangles.
+    """
+    tst_classify_triangle = ClassifyTriangle(2, 3, 4)
+    is_not_isosceles_triangle = tst_classify_triangle.isosceles_triangle()
+    assert is_not_isosceles_triangle is False
+
+def test_non_scalene_triangle_with_positive_integers():
+    """
+    Test case for non-scalene triangles.
+    This test checks if the ClassifyTriangle class correctly 
+    identifies non-scalene triangles.
+    """
+    tst_classify_triangle = ClassifyTriangle(2, 2, 2)
+    triangle_type = tst_classify_triangle.classify_triangle()
+    assert "scalene" not in triangle_type
