@@ -55,14 +55,3 @@ class ClassifyTriangle:
     def equilateral_triangle(self) -> bool:
         """Check if the triangle is an equilateral triangle."""
         return self.s1 == self.s2 == self.s3
-
-# if len(sys.argv) == 4:
-#     input_side1 = int(sys.argv[1])
-#     input_side2 = int(sys.argv[2])
-#     input_side3 = int(sys.argv[3])
-
-#     try:
-#         process_results = ClassifyTriangle(input_side1, input_side2, input_side3)
-#         print(process_results.classify_triangle())
-#     except InvalidTriangleError as e:
-#         print(f"I'm sorry, but one of your sides is not a valid entry.\n{str(e)}")
