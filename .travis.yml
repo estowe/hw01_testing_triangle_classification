@@ -4,4 +4,4 @@ python:
 
 # command to run tests
 script:
- - python -m pytest classify_triangle_test.py
+ - python3 -m pytest classify_triangle_test.py
